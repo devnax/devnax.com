@@ -9,7 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@xanui/core": "^1.2.63",
     "@xanui/icons": "^1.1.12",
     "@xanui/ui": "^1.2.5",
     "next": "16.2.1",

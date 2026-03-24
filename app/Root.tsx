@@ -1,41 +1,41 @@
 "use client"
+import Footer from "@/Footer";
+import Navbar from "@/Navbar";
 import { AppRoot, createTheme } from "@xanui/core";
+import { useState } from "react";
 
-createTheme("xan-light", {
-   colors: {
 
-      brand: {
-         primary: "#F97316",
-         secondary: "#22C55E",
-         text: "#FFFFFF"
-      },
-      accent: {
-         primary: "#3B82F6",
-         secondary: "#FBBF24",
-         text: "#1F2937"
-      }
+const colors = {
+   brand: {
+      primary: "#F54A00",
+      secondary: "#FF6900", // lighter orange
+      text: "#FFFFFF"
+   },
+   accent: {
+      primary: "#155dfc",   // blue
+      secondary: "#2b7fff", // lighter blue
+      text: "#FFFFFF"
    }
-})
+}
+createTheme("xan-light", { colors })
+createTheme("xan-dark", { colors }, "dark")
 
-createTheme("xan-dark", {
-   colors: {
-      brand: {
-         primary: "#F97316",
-         secondary: "#22C55E",
-         text: "#FFFFFF"
-      },
-      accent: {
-         primary: "#38BDF8",
-         secondary: "#FBBF24",
-         text: "#0F172A"
-      }
-   }
-}, "dark")
 
 export default function RootContainer({ children, theme, breakpoint }: any) {
+   const [t, setTheme] = useState(theme)
    return (
-      <AppRoot theme={theme || "xan-dark"} defaultBreakpoint={breakpoint || "xs"}>
+      <AppRoot
+         theme={t}
+         defaultBreakpoint={breakpoint || "xs"}
+         onThemeChange={(nt) => setTheme(nt)}
+      // sx={{
+      //    backgroundImage: "url(/hero-bg.png)",
+      //    backgroundRepeat: "repeat"
+      // }}
+      >
+         <Navbar />
          {children}
+         <Footer />
       </AppRoot>
    );
 }

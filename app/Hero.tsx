@@ -1,5 +1,7 @@
 "use client"
-import { alpha, useTheme } from '@xanui/core'
+import Mail from '@xanui/icons/Mail'
+import Work from '@xanui/icons/Work'
+import Button from '@xanui/ui/Button'
 import Container from '@xanui/ui/Container'
 import GridContainer from '@xanui/ui/GridContainer'
 import GridItem from '@xanui/ui/GridItem'
@@ -8,34 +10,43 @@ import Stack from '@xanui/ui/Stack'
 import Text from '@xanui/ui/Text'
 
 const Hero = () => {
-   const theme = useTheme()
    return (
       <Stack
-         height={600}
+         py={10}
          alignItems={"center"}
          justifyContent={"center"}
-         sx={{
-            backgroundBlendMode: "overlay",
-            background: `linear-gradient(150deg, ${alpha(theme.colors.brand.primary, .2)} 0%, ${theme.colors.background.primary} 30%)`
-         }}
+
       >
          <Container>
             <GridContainer alignItems={"center"}>
                <GridItem xs={12} md={8}>
-                  <Text
-                     variant={'h1'}
-                     fontSize={80}
-                     color="brand.primary"
-                     fontWeight={"bold"}
-                  >Hi, I’m Naxrul Ahmed</Text>
-                  <Text
-                     variant="h3"
-                     fontWeight={"lighter"}
-                  >I turn ideas into smooth, beautiful web experiences</Text>
-                  <Text
-                     fontWeight={"300"}
-                  >I create clean, scalable, and user-friendly digital experiences using modern technologies.
-                     From idea to production, I turn concepts into real products.</Text>
+                  <Stack gap={3}>
+                     <Text
+                        variant={'h1'}
+                        fontSize={{
+                           xs: 50,
+                           md: 80
+                        }}
+                        color="brand.primary"
+                        fontWeight={"bold"}
+                        lineHeight={1.2}
+                     >Hi, I’m Naxrul Ahmed</Text>
+                     <Text
+                        variant="h3"
+                        fontWeight={"lighter"}
+                     >I turn ideas into smooth, beautiful web experiences</Text>
+                     <Stack
+                        flexRow
+                        gap={2}
+                     >
+                        <Button
+                           startIcon={<Work />}
+                        >View Projects</Button>
+                        <Button color="accent"
+                           startIcon={<Mail />}
+                        >Contact</Button>
+                     </Stack>
+                  </Stack>
                </GridItem>
                <GridItem xs={12} md={4} >
                   <Image
