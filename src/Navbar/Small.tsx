@@ -12,6 +12,7 @@ import List from '@xanui/ui/List'
 import ListItem from '@xanui/ui/ListItem'
 import { useState } from 'react'
 import Link from 'next/link'
+import { darkTheme, lightTheme } from '@/theme'
 
 const SmallNav = () => {
    const theme = useTheme()
@@ -70,7 +71,7 @@ const SmallNav = () => {
                color="default"
                corner={"rounded"}
                onClick={() => {
-                  theme.change(isDark ? "xan-light" : "xan-dark")
+                  theme.change(isDark ? lightTheme : darkTheme)
                }}
             >
                {isDark ? <LightMode /> : <DarkMode />}
