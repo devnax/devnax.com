@@ -54,13 +54,21 @@ const SmallNav = () => {
                <List width={180}>
                   {
                      menus.map(m => (
-                        <ListItem
+                        <Link
                            key={m.label}
-                           color={pathname.startsWith(m.href) ? "brand" : "default"}
-                           startIcon={m.icon}
+                           href={m.href}
+                           style={{
+                              textDecoration: "none",
+                              display: "block"
+                           }}
                         >
-                           {m.label}
-                        </ListItem>
+                           <ListItem
+                              color={pathname.startsWith(m.href) ? "brand" : "default"}
+                              startIcon={m.icon}
+                           >
+                              {m.label}
+                           </ListItem>
+                        </Link>
                      ))
                   }
                </List>

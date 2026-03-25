@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export default function RootContainer({ children, theme, breakpoint }: any) {
    const [t, setTheme] = useState(theme === 'xan-dark' ? darkTheme : lightTheme)
+
    return (
       <AppRoot
          theme={t}
