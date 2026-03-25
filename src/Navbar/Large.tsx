@@ -8,6 +8,7 @@ import Text from '@xanui/ui/Text'
 import menus from './menus'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { darkTheme, lightTheme } from '@/theme'
 
 const LargeNav = () => {
    const theme = useTheme()
@@ -61,7 +62,7 @@ const LargeNav = () => {
                color="default"
                corner={"rounded"}
                onClick={() => {
-                  theme.change(isDark ? "xan-light" : "xan-dark")
+                  theme.change(isDark ? lightTheme : darkTheme)
                }}
             >
                {isDark ? <LightMode /> : <DarkMode />}
