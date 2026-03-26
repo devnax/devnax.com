@@ -51,16 +51,20 @@ export default function Home() {
   return (
     <Stack >
       <Hero />
-      <Carousel autoplay ref={ref}>
+      {/* <Carousel
+        autoplay
+        ref={ref}
+        gap={2}
+      >
         {
           dummy.map((d, i) => (
-            <Box key={d.title} height={180} m={1} >
-              <Text>{i}</Text>
+            <Box key={d.title} height={250} overflow={"hidden"} mb={2}
+              radius={2}
+            >
               <Image
                 src={d.image}
                 alt=""
-                height="100%"
-                radius={2}
+                width="100%"
               />
             </Box>
           ))
@@ -69,13 +73,15 @@ export default function Home() {
       <Button
         onClick={() => {
           ref.current?.next()
+          console.log(ref.current?.getIndex());
+
         }}
       >Next</Button>
       <Button
         onClick={() => {
           ref.current?.prev()
         }}
-      >prev</Button>
+      >prev</Button> */}
       <Stack
         bgcolor="background.secondary"
       >

@@ -35,7 +35,7 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
    autoplay = false,
    interval = 3000,
 }, ref) => {
-
+   gap = gap * 8
    const items = Children.toArray(children);
    const total = items.length;
 
@@ -52,8 +52,12 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
    // 🔥 Core Methods
    // =========================
 
-   const next = () => setIndex((prev) => prev + slidesToScroll);
-   const prev = () => setIndex((prev) => prev - slidesToScroll);
+   const next = () => {
+      if (isAnimating) setIndex((prev) => prev + slidesToScroll);
+   };
+   const prev = () => {
+      if (isAnimating) setIndex((prev) => prev - slidesToScroll);
+   };
    const goTo = (i: number) => setIndex(infinite ? i + slidesToShow : i);
    const getIndex = () => infinite ? index - slidesToShow : index
 
@@ -81,17 +85,29 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
       if (!infinite) return;
 
       if (index >= total + slidesToShow) {
+         // reached "end clones", jump back instantly
+         const newIndex = slidesToShow;
          setTimeout(() => {
-            setIsAnimating(false);
-            setIndex(slidesToShow);
-         }, 500);
+            setIsAnimating(false); // disable animation
+            setIndex(newIndex);     // jump
+         }, 500); // must match your CSS transition
+
+         setTimeout(() => {
+            setIsAnimating(true); // re-enable animation
+         }, 510);
       }
 
       if (index < slidesToShow) {
+         // reached "start clones", jump to last real slide
+         const newIndex = total + slidesToShow - slidesToScroll;
          setTimeout(() => {
             setIsAnimating(false);
-            setIndex(total + slidesToShow - slidesToScroll);
+            setIndex(newIndex);
          }, 500);
+
+         setTimeout(() => {
+            setIsAnimating(true);
+         }, 510);
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [index]);
@@ -107,39 +123,38 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
    const translate = (index * 100) / slidesToShow;
 
    const startX = useRef(0);
-   const currentX = useRef(0);
    const isDragging = useRef(false);
 
-   const onPointerDown = (e: React.PointerEvent) => {
-      startX.current = e.clientX;
+   const handleStart = (x: number) => {
+      startX.current = x;
       isDragging.current = true;
    };
 
-   const onPointerMove = (e: React.PointerEvent) => {
-      if (!isDragging.current) return;
-      currentX.current = e.clientX;
-   };
-
-   const onPointerUp = () => {
+   const handleEnd = (x: number) => {
       if (!isDragging.current) return;
 
-      const diff = currentX.current - startX.current;
+      const diff = x - startX.current;
 
       if (diff > 50) prev();
       else if (diff < -50) next();
 
       isDragging.current = false;
    };
-
    return (
       <Box
          position={"relative"}
          overflow={"hidden"}
          width={"100%"}
-         onPointerDown={onPointerDown as any}
-         onPointerMove={onPointerMove as any}
-         onPointerUp={onPointerUp}
-         onPointerLeave={onPointerUp} // important!
+         sx={{
+            touchAction: "pan-y",
+         }}
+
+         onPointerDown={(e: any) => handleStart(e.clientX)}
+         onPointerUp={(e: any) => handleEnd(e.clientX)}
+
+         // Touch (mobile)
+         onTouchStart={(e: any) => handleStart(e.touches[0].clientX)}
+         onTouchEnd={(e: any) => handleEnd(e.changedTouches[0].clientX)}
       >
          <Box
             ref={trackRef}
@@ -159,6 +174,8 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
                      flexShrink: 0,
                   }}
                   userSelect={"none"}
+                  pointerEvents={"none"}
+
                >
                   {child}
                </Box>
