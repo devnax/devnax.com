@@ -14,7 +14,8 @@ const Hero = () => {
 
    return (
       <Stack
-         py={10}
+         pt={10}
+         pb={20}
          alignItems={"center"}
          justifyContent={"center"}
       >
@@ -58,7 +59,7 @@ const Hero = () => {
                                  md: "h2"
                               }}
                               fontWeight={"lighter"}
-                           >Full-Stack Developer & Creator</Text>
+                           >Building Scalable Web Apps | Full-Stack Innovator | Problem Solver</Text>
                         </Transition>
 
                      </Stack>
@@ -74,11 +75,9 @@ const Hero = () => {
                         color="text.secondary"
                         fontWeight={{
                            xs: 300,
-                           md: 100
+                           md: 300
                         }}
-                     >I build scalable, efficient, and elegant
-                        web applications that solve real problems
-                        and delight users.</Text>
+                     >Turning Ideas into Code, Code into Impact</Text>
                      <Stack
                         flexRow
                         gap={2}

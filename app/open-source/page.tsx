@@ -1,10 +1,12 @@
+import Stack from '@xanui/ui/Stack'
 import React from 'react'
+import Hero from './Hero'
 
 const page = () => {
    return (
-      <div>
-         open-source
-      </div>
+      <Stack>
+         <Hero />
+      </Stack>
    )
 }
 

@@ -1,10 +1,11 @@
-import React from 'react'
+import Stack from '@xanui/ui/Stack'
+import Hero from './Hero'
 
 const page = () => {
    return (
-      <div>
-         Contact
-      </div>
+      <Stack>
+         <Hero />
+      </Stack>
    )
 }
 

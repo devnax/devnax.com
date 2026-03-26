@@ -1,11 +1,21 @@
 "use client"
 import Stack from "@xanui/ui/Stack";
-import Hero from "./Hero";
+import About from "@/Partials/Home/About";
+import Hero from "@/Partials/Home/Hero";
+import HomePorjects from "@/Partials/Home/Projects";
 
 export default function Home() {
   return (
     <Stack >
       <Hero />
+      <Stack
+        bgcolor="background.secondary"
+      >
+        <About />
+      </Stack>
+      <Stack>
+        <HomePorjects />
+      </Stack>
     </Stack>
   );
 }
