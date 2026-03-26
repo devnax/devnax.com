@@ -7,7 +7,6 @@ import Button from '@xanui/ui/Button'
 import Container from '@xanui/ui/Container'
 import GridContainer from '@xanui/ui/GridContainer'
 import GridItem from '@xanui/ui/GridItem'
-import Image from '@xanui/ui/Image'
 import Stack from '@xanui/ui/Stack'
 import Text from '@xanui/ui/Text'
 
