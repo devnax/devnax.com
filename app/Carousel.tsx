@@ -73,6 +73,7 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
       if (!autoplay) return;
       const id = setInterval(next, interval);
       return () => clearInterval(id);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [index, autoplay]);
 
    // infinite jump fix
@@ -92,6 +93,7 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
             setIndex(total + slidesToShow - slidesToScroll);
          }, 500);
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [index]);
 
    // re-enable animation
@@ -134,8 +136,8 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
          position={"relative"}
          overflow={"hidden"}
          width={"100%"}
-         onPointerDown={onPointerDown}
-         onPointerMove={onPointerMove}
+         onPointerDown={onPointerDown as any}
+         onPointerMove={onPointerMove as any}
          onPointerUp={onPointerUp}
          onPointerLeave={onPointerUp} // important!
       >
