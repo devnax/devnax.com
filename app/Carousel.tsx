@@ -158,7 +158,6 @@ const Carousel = forwardRef<CarouselRef, CarouselProps>(({
                      width: `calc(${100 / slidesToShow}% - ${gap}px)`,
                      flexShrink: 0,
                   }}
-                  pointerEvents={"none"}
                   userSelect={"none"}
                >
                   {child}
