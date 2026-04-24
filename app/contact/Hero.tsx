@@ -21,7 +21,7 @@ const Hero = () => {
                         xs: 40,
                         md: 60
                      }}
-                     color="brand.primary"
+                     color="primary.main"
                      fontWeight={"bold"}
                   >Get In Touch</Text>
                </Transition>
@@ -35,7 +35,7 @@ const Hero = () => {
                         xs: "text",
                         md: "h6"
                      }}
-                     color="text.secondary"
+                     color="surface.muted"
                      fontWeight={{
                         xs: 300,
                         md: 300

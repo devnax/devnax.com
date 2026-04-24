@@ -43,7 +43,7 @@ const Hero = () => {
                                  xs: 50,
                                  md: 80
                               }}
-                              color="brand.primary"
+                              color="primary.main"
                               fontWeight={"bold"}
                               lineHeight={1.2}
                            >Naxrul Ahmed</Text>
@@ -72,7 +72,7 @@ const Hero = () => {
                            xs: "text",
                            md: "h6"
                         }}
-                        color="text.secondary"
+                        color="surface.muted"
                         fontWeight={{
                            xs: 300,
                            md: 300

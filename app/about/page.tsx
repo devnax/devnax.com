@@ -8,7 +8,7 @@ const page = () => {
       <Stack>
          <Hero />
          <Stack
-            bgcolor={"background.secondary"}
+            bgcolor={"surface.light"}
          >
             <About />
          </Stack>

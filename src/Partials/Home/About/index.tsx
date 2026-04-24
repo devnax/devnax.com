@@ -10,23 +10,10 @@ const About = () => {
    // const theme = useTheme()
    return (
       <Stack
-         // bgcolor={"background.secondary"}
          py={5}
-         sx={{
-            // position: "relative",
-            // "&::before": {
-            //    content: '""',
-            //    background: `radial-gradient(circle, ${theme.colors.brand.primary} 0%, ${theme.colors.background.primary} 50%);`,
-            //    width: 700,
-            //    height: "100%",
-            //    position: "absolute",
-            //    top: "-500px",
-            //    left: '-350px',
-            // }
-         }}
       >
          <Container
-            // bgcolor={"background.secondary"}
+            // bgcolor={"surface.light"}
             py={7}
             radius={3}
          >
@@ -44,10 +31,10 @@ const About = () => {
                   <Stack gap={3}>
                      <Text variant={"h3"}>Building Ideas Into Scalable Digital Products</Text>
                      <Stack gap={2}>
-                        <Text color="text.secondary">
+                        <Text color="surface.muted">
                            I’m a full-stack web developer passionate about building scalable, high-performance web applications. I specialize in creating clean, efficient, and user-focused solutions using modern technologies.
                         </Text>
-                        <Text color="text.secondary">
+                        <Text color="surface.muted">
                            With a strong focus on architecture and performance, I enjoy solving complex problems and turning ideas into real-world products. I’m constantly exploring new tools and pushing my limits to build better, faster, and smarter systems.
                         </Text>
                      </Stack>

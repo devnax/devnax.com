@@ -63,8 +63,11 @@ const SmallNav = () => {
                            }}
                         >
                            <ListItem
-                              color={pathname.startsWith(m.href) ? "brand" : "default"}
+                              color={pathname.startsWith(m.href) ? "primary" : "surface"}
                               startIcon={m.icon}
+                              onClick={() => {
+                                 setTarget(null)
+                              }}
                            >
                               {m.label}
                            </ListItem>
@@ -76,7 +79,7 @@ const SmallNav = () => {
 
             <IconButton
                variant={"outline"}
-               color="default"
+               color="surface"
                corner={"rounded"}
                onClick={() => {
                   theme.change(isDark ? lightTheme : darkTheme)
@@ -90,7 +93,7 @@ const SmallNav = () => {
             >
                <IconButton
                   variant={"outline"}
-                  color="default"
+                  color="surface"
                   corner={"rounded"}
                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
@@ -100,7 +103,7 @@ const SmallNav = () => {
             </Link>
             <IconButton
                variant={"outline"}
-               color="default"
+               color="surface"
                corner={"rounded"}
                onClick={(e: any) => {
                   setTarget(e.currentTarget)

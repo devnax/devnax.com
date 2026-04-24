@@ -49,10 +49,10 @@ const HomePorjects = () => {
                   justifyContent={"center"}
                >
                   <Text variant="h2">Featured Projects</Text>
-                  <Text color="text.secondary">A selection of my most impactful work across various industries and technologies.</Text>
+                  <Text color="surface.muted">A selection of my most impactful work across various industries and technologies.</Text>
                </Stack>
 
-               <GridContainer spacing={2}>
+               <GridContainer spacing={3}>
                   {
                      dummy.map(p => (
                         <GridItem key={p.title} xs={12} md={6} lg={4}>

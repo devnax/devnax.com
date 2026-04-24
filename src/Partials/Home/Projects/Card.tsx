@@ -2,6 +2,7 @@ import Launch from '@xanui/icons/Launch'
 import Button from '@xanui/ui/Button'
 import Image from '@xanui/ui/Image'
 import Stack from '@xanui/ui/Stack'
+import Card from '@xanui/ui/Card'
 import Text from '@xanui/ui/Text'
 
 type Props = {
@@ -11,27 +12,11 @@ type Props = {
    link: string;
 }
 
-const Card = ({ title, content, image, link }: Props) => {
+const ProjectCard = ({ title, content, image, link }: Props) => {
    return (
-      <Stack
-         gap={1}
-         radius={1}
-         overflow={"hidden"}
-         border="1px solid"
-         borderColor='divider'
-         sx={{
-            transition: "all .3s",
-            "& img": {
-               transition: "all .3s",
-            },
-            "&:hover": {
-               bgcolor: "brand.soft.primary",
-               shadow: 15,
-               "& img": {
-                  transform: "scale(1.1) rotate(4deg)"
-               }
-            }
-         }}
+      <Card
+         p={0}
+         variant="outlined"
       >
          <Stack
             height={180}
@@ -43,8 +28,8 @@ const Card = ({ title, content, image, link }: Props) => {
             />
          </Stack>
          <Stack p={1} gap={1}>
-            <Text variant="h6">{title}</Text>
-            <Text color="text.secondary">
+            <Text variant="h6" fontSize={"big"}>{title}</Text>
+            <Text color="surface.muted" fontSize={"button"}>
                {content}
             </Text>
          </Stack>
@@ -63,8 +48,8 @@ const Card = ({ title, content, image, link }: Props) => {
                textTransform={"capitalize"}
             >View Project</Button>
          </Stack>
-      </Stack>
+      </Card>
    )
 }
 
-export default Card
+export default ProjectCard

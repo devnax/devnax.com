@@ -1,17 +1,21 @@
 import { createTheme } from "@xanui/core"
 
-const colors = {
-   brand: {
-      primary: "#F54A00",
-      secondary: "#FF6900", // lighter orange
-      text: "#FFFFFF"
-   },
-   accent: {
-      primary: "#155dfc",   // blue
-      secondary: "#2b7fff", // lighter blue
-      text: "#FFFFFF"
-   }
-}
+const primary = "#F54A00"
+const accent = "#155dfc"
 
-export const lightTheme = createTheme("xan-light", { colors })
-export const darkTheme = createTheme("xan-dark", { colors }, "dark")
+export const lightTheme = createTheme({
+   mode: "light",
+   name: "xan-light",
+   colors: {
+      primary,
+      accent
+   }
+})
+export const darkTheme = createTheme({
+   mode: "dark",
+   name: "xan-dark",
+   colors: {
+      primary,
+      accent
+   }
+})
