@@ -18,7 +18,6 @@ export default function Home() {
         <About />
       </Stack>
       <Stack>
-        <HomePorjects />
       </Stack>
     </Stack>
   );
